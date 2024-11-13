@@ -11,6 +11,11 @@ import { UserEditComponent } from './users/user-edit/user-edit.component';
         UserDetailsComponent,
         UserListComponent,
         UserEditComponent
+    ],
+    exports: [
+        UserListComponent, 
+        UserDetailsComponent, 
+        UserEditComponent
     ]
 })
 export class FeaturesModule {}
