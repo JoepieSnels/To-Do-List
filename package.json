@@ -1,6 +1,6 @@
 {
     "name": "@avans-nx-workshop/source",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "license": "MIT",
     "scripts": {
         "deploy": "nx run share-a-meal-web:build",
@@ -9,6 +9,10 @@
         "test": "nx run-many -t test"
     },
     "private": true,
+    "engines": {
+        "node": "^20.0.0",
+        "npm": "^10.0.0"
+    },
     "dependencies": {
         "@angular/animations": "~16.2.0",
         "@angular/common": "~16.2.0",
