@@ -1,8 +1,6 @@
 {
     "$schema": "./node_modules/nx/schemas/nx-schema.json",
-    "affected": {
-        "defaultBase": "master"
-    },
+    "affected": { "defaultBase": "master" },
     "targetDefaults": {
         "build": {
             "cache": true,
@@ -26,10 +24,7 @@
                 "{workspaceRoot}/jest.preset.js"
             ]
         },
-        "e2e": {
-            "cache": true,
-            "inputs": ["default", "^production"]
-        }
+        "e2e": { "cache": true, "inputs": ["default", "^production"] }
     },
     "namedInputs": {
         "default": ["{projectRoot}/**/*", "sharedGlobals"],
@@ -52,13 +47,8 @@
             "unitTestRunner": "jest",
             "e2eTestRunner": "cypress"
         },
-        "@nx/angular:library": {
-            "linter": "eslint",
-            "unitTestRunner": "jest"
-        },
-        "@nx/angular:component": {
-            "style": "css"
-        }
+        "@nx/angular:library": { "linter": "eslint", "unitTestRunner": "jest" },
+        "@nx/angular:component": { "style": "css" }
     },
-    "nxCloudAccessToken": "ZjM2ZDA1YjgtMWY1Ny00M2YxLWFlZmMtNjUxYzk3OWFjYmJmfHJlYWQtd3JpdGU="
+    "nxCloudAccessToken": "ZmYwNzE3NmItMDMxZC00MDlhLWIyNTMtOTJiMmUzZWRiNjZmfHJlYWQtd3JpdGU="
 }
