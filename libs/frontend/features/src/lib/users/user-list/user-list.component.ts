@@ -1,34 +1,35 @@
-import { Component } from '@angular/core';
-import { IUserInfo, UserRole, UserGender } from "@avans-nx-workshop/shared/api";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { IUserInfo } from '@avans-nx-workshop/shared/api';
+import { UserService } from '../user.service';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'avans-nx-workshop-user-list',
-    templateUrl: './user-list.component.html',
+    templateUrl: './user-list.component.html'
 })
-export class UserListComponent {
+export class UserListComponent implements OnInit, OnDestroy {
+    users: IUserInfo[] | undefined = undefined;
+    sub?: Subscription;
 
-    users: IUserInfo[] = [
-        {
-            _id: "1",
-            name: "robin",
-            emailAddress: "r.schellius@avans.nl",
-            role: UserRole.Unknown,
-            gender: UserGender.Unknown,
-            password: "secret",
-            isActive: true,
-            profileImgUrl: "url"
-        },
-        {
-            _id: "2",
-            name: "Davide",
-            emailAddress: "d.ambesi@avans.nl",
-            role: UserRole.Unknown,
-            gender: UserGender.Unknown,
-            password: "secret",
-            isActive: true,
-            profileImgUrl: "url"
+    constructor(private userService: UserService) {}
+
+    ngOnInit(): void {
+        console.log('UserListComponent onInit');
+
+        // Synchrone manier: geen zichtbare vertraging
+        // this.users = this.userService.getUsers();
+
+        // Asynchroon: met Reactive Programming
+        this.sub = this.userService
+            .getUsersAsObservable()
+            .subscribe((users) => (this.users = users));
+    }
+
+    ngOnDestroy(): void {
+        if (this.sub) {
+            console.log('UNSUBSCRIBE');
+            this.sub.unsubscribe();
         }
-    ]  
-
-
+        console.log('UserListComponent onDestroy');
+    }
 }
