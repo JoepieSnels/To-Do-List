@@ -7,10 +7,6 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
     imports: [CommonModule, RouterModule],
-    declarations: [
-        UserDetailsComponent,
-        UserListComponent,
-        UserEditComponent
-    ]
+    declarations: [UserDetailsComponent, UserListComponent, UserEditComponent]
 })
 export class FeaturesModule {}

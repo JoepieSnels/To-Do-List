@@ -18,7 +18,6 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
         private route: ActivatedRoute,
         private userService: UserService
     ) {}
-
     ngOnInit(): void {
         console.log('UserDetailComponent onInit');
         // Deze manier is statisch: bij navigatie krijgen we niet de nieuwe id uit de URL.
