@@ -20,7 +20,8 @@ export enum UserGender {
  * Minimal user information
  */
 
-export interface IUserIdentity { // extends IEntity {
+export interface IUserIdentity {
+    // extends IEntity {
     name: string;
     emailAddress: string;
     profileImgUrl: string;
