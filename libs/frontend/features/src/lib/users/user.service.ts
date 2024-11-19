@@ -69,4 +69,15 @@ export class UserService {
         console.log('getUserById() aangeroepen');
         return this.users.filter((user) => user._id === id)[0];
     }
+    updateUser(user: IUserInfo): void {
+        console.log('updateUser() aangeroepen');
+        const userToUpdate = this.getUserById(user._id);
+        console.log('updateUser() id:', userToUpdate?._id);
+        if (userToUpdate) {
+            userToUpdate.name = user.name;
+            userToUpdate.emailAddress = user.emailAddress;
+            userToUpdate.role = user.role;
+            userToUpdate.gender = user.gender;
+        }
+    }
 }

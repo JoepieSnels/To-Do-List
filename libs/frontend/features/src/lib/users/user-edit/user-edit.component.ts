@@ -1,4 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    OnDestroy,
+    ViewChild,
+    ElementRef
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IUserInfo } from '@avans-nx-workshop/shared/api';
 import { UserService } from '@avans-nx-workshop/features';
@@ -10,6 +16,7 @@ import { ActivatedRoute } from '@angular/router';
     styles: []
 })
 export class UserEditComponent implements OnInit, OnDestroy {
+    @ViewChild('nameInput') nameInputRef!: ElementRef;
     userId!: string | null;
     user: IUserInfo | null = null;
     sub!: Subscription;
@@ -34,8 +41,13 @@ export class UserEditComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
         console.log('UserDetailComponent onDestroy');
         if (this.sub) {
-            console.log('unsubscribing');
-            this.sub.unsubscribe;
+            this.sub.unsubscribe();
+        }
+        console.log(this.nameInputRef);
+        if (this.user && this.nameInputRef) {
+            this.user.name = this.nameInputRef.nativeElement.value;
+            this.userService.updateUser(this.user);
+            console.log('Updated user:', this.user);
         }
     }
 }
