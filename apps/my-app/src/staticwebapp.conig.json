@@ -1,6 +1,8 @@
 {
     "navigationFallback": {
-        "rewrite": "/index.html",
-        "statusCode": 200
+        "rewrite": "index.html"
+    },
+    "mimeTypes": {
+        ".json": "text/json"
     }
 }
