@@ -3,9 +3,8 @@
     "version": "1.0.0",
     "license": "MIT",
     "scripts": {
-        "build": "nx run-many -t build",
-        "build:my-app": "nx run my-app:build:production",
-        "test": "nx run-many -t test"
+        "build": "nx run-many -t build --no-cloud",
+        "test": "nx run-many -t test --no-cloud"
     },
     "private": true,
     "engines": {
