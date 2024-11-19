@@ -3,10 +3,11 @@ import {
     OnInit,
     OnDestroy,
     ViewChild,
-    ElementRef
+    ElementRef,
+    viewChild
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IUserInfo } from '@avans-nx-workshop/shared/api';
+import { IUserInfo, UserMood, UserGender } from '@avans-nx-workshop/shared/api';
 import { UserService } from '@avans-nx-workshop/features';
 import { ActivatedRoute } from '@angular/router';
 
@@ -17,9 +18,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserEditComponent implements OnInit, OnDestroy {
     @ViewChild('nameInput') nameInputRef!: ElementRef;
+    @ViewChild('moodSelect') moodSelectRef!: ElementRef;
+    @ViewChild('genderSelect') genderSelectRef!: ElementRef;
+    @ViewChild('emailInput') emailInputRef!: ElementRef;
     userId!: string | null;
     user: IUserInfo | null = null;
     sub!: Subscription;
+    moods: UserMood[] = [
+        UserMood.Mad,
+        UserMood.Happy,
+        UserMood.Sad,
+        UserMood.Moderate
+    ];
+    gender: UserGender[] = [
+        UserGender.Male,
+        UserGender.Female,
+        UserGender.None,
+        UserGender.Unknown
+    ];
 
     constructor(
         private route: ActivatedRoute,
@@ -43,9 +59,12 @@ export class UserEditComponent implements OnInit, OnDestroy {
         if (this.sub) {
             this.sub.unsubscribe();
         }
-        console.log(this.nameInputRef);
+
         if (this.user && this.nameInputRef) {
             this.user.name = this.nameInputRef.nativeElement.value;
+            this.user.mood = this.moodSelectRef.nativeElement.value;
+            this.user.gender = this.genderSelectRef.nativeElement.value;
+            this.user.emailAddress = this.emailInputRef.nativeElement.value;
             this.userService.updateUser(this.user);
             console.log('Updated user:', this.user);
         }

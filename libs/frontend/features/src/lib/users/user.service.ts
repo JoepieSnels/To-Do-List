@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
-import { IUserInfo, UserRole, UserGender } from '@avans-nx-workshop/shared/api';
+import { IUserInfo, UserGender, UserMood } from '@avans-nx-workshop/shared/api';
 
 @Injectable({
     providedIn: 'root'
@@ -11,41 +11,45 @@ export class UserService {
             _id: '1',
             name: 'Robin Schellius',
             emailAddress: 'r.schellius@avans.nl',
-            role: UserRole.Unknown,
+            mood: UserMood.Mad,
             gender: UserGender.Male,
             password: 'secret',
             isActive: true,
-            profileImgUrl: 'https://randomuser.me/api/portraits/men/2.jpg'
+            profileImgUrl: 'https://randomuser.me/api/portraits/men/2.jpg',
+            coins: 0
         },
         {
             _id: '2',
             name: 'Davide Ambesi',
             emailAddress: 'd.ambesi@avans.nl',
-            role: UserRole.Unknown,
+            mood: UserMood.Sad,
             gender: UserGender.Male,
             password: 'secret',
             isActive: true,
-            profileImgUrl: 'https://randomuser.me/api/portraits/men/3.jpg'
+            profileImgUrl: 'https://randomuser.me/api/portraits/men/3.jpg',
+            coins: 0
         },
         {
             _id: '3',
             name: 'Marieke Jansen',
             emailAddress: 'm.jansen@server.nl',
-            role: UserRole.Unknown,
+            mood: UserMood.Happy,
             gender: UserGender.Female,
             password: 'secret',
             isActive: false,
-            profileImgUrl: 'https://randomuser.me/api/portraits/women/3.jpg'
+            profileImgUrl: 'https://randomuser.me/api/portraits/women/3.jpg',
+            coins: 0
         },
         {
             _id: '4',
             name: 'Jan Montizaan',
             emailAddress: 'j.montizaan@avans.nl',
-            role: UserRole.Unknown,
+            mood: UserMood.Moderate,
             gender: UserGender.Male,
             password: 'secret',
             isActive: true,
-            profileImgUrl: 'https://randomuser.me/api/portraits/men/5.jpg'
+            profileImgUrl: 'https://randomuser.me/api/portraits/men/5.jpg',
+            coins: 0
         }
     ];
 
@@ -76,7 +80,8 @@ export class UserService {
         if (userToUpdate) {
             userToUpdate.name = user.name;
             userToUpdate.emailAddress = user.emailAddress;
-            userToUpdate.role = user.role;
+
+            userToUpdate.mood = user.mood;
             userToUpdate.gender = user.gender;
         }
     }

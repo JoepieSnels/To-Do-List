@@ -45,8 +45,9 @@
                                         </div>
                                         <div class="col-sm-9 text-secondary">
                                             <input
-                                                type="text"
+                                                type="email"
                                                 class="form-control"
+                                                #emailInput
                                                 value="{{ user?.emailAddress }}"
                                             />
                                         </div>
@@ -56,11 +57,24 @@
                                             <h6 class="mb-0">Sex</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                value="{{ user?.gender }}"
-                                            />
+                                            <select
+                                                class="form-select"
+                                                aria-label="Default select example"
+                                                #genderSelect
+                                            >
+                                                <option value="{{ gender[0] }}">
+                                                    {{ gender[0] }}
+                                                </option>
+                                                <option value="{{ gender[1] }}">
+                                                    {{ gender[1] }}
+                                                </option>
+                                                <option value="{{ gender[2] }}">
+                                                    {{ gender[2] }}
+                                                </option>
+                                                <option value="{{ gender[3] }}">
+                                                    {{ gender[3] }}
+                                                </option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -68,11 +82,24 @@
                                             <h6 class="mb-0">Mood</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                value="(320) 380-4539"
-                                            />
+                                            <select
+                                                class="form-select"
+                                                aria-label="Default select example"
+                                                #moodSelect
+                                            >
+                                                <option value="{{ moods[0] }}">
+                                                    {{ moods[0] }}
+                                                </option>
+                                                <option value="{{ moods[1] }}">
+                                                    {{ moods[1] }}
+                                                </option>
+                                                <option value="{{ moods[2] }}">
+                                                    {{ moods[2] }}
+                                                </option>
+                                                <option value="{{ moods[3] }}">
+                                                    {{ moods[3] }}
+                                                </option>
+                                            </select>
                                         </div>
                                     </div>
                                     <button

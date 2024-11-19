@@ -1,5 +1,5 @@
 <h1>User list</h1>
-<p>Hier vind je een overzicht van de users in dit systeem.</p>
+<p>Hier vind je een overzicht van al jouw vrienden.</p>
 
 @if(!users) {
 <p>Loading data...</p>
@@ -13,7 +13,8 @@
             <th></th>
             <th>Name</th>
             <th>Email</th>
-            <th>isActive</th>
+            <th>Mood</th>
+            <th>Coins</th>
         </tr>
     </thead>
     <tbody>
@@ -33,7 +34,8 @@
                 </a>
             </td>
             <td>{{ user.emailAddress }}</td>
-            <td>{{ user.isActive }}</td>
+            <td>{{ user.mood }}</td>
+            <td>{{ user.coins }}</td>
         </tr>
     </tbody>
 </table>
