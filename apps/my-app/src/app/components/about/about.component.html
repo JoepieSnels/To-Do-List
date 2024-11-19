@@ -1,1 +1,411 @@
-<p>about works!</p>
+<div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+        <h1>About</h1>
+        <p class="lead">Zelfverbeterings casus</p>
+    </div>
+
+    <!-- Personal Information -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h2>Persoonlijke Informatie</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Naam:</strong> Joep Snels</p>
+            <p><strong>Studentnummer:</strong> 2215029</p>
+        </div>
+    </div>
+
+    <!-- Casus Description -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h2>Beschrijving van de Casus</h2>
+        </div>
+        <div class="card-body">
+            <h3>Projectbeschrijving</h3>
+            <p>
+                Deze webapplicatie gaat ervoor zorgen dat, mensen die zichzelf
+                willen verbeteren dit op een leuke, fijne manier kunnen doen in
+                hun eentje, of met meerdere mocht de gebruiker dat willen. Het
+                idee is dat de gebruiker aan de hand van uitdagingen zichzelf
+                kan verbeteren. Door deze uitdagingen te voltooien kan de
+                gebruiker coins verdienen, en deze coinskunnen dan weer worden
+                ingewisseld voor producten of huisdieren.
+            </p>
+            <br />
+            <br />
+            <h3>Huisdieren, uitdagingen en coins</h3>
+            <p>
+                Het idee van de huisdieren is dat de gebruiker een virtueel
+                huisdier heeft waar de gebruiker een band mee kan maken. Het
+                huisdier moet worden verzorgd, en de gebruiker moet daarvoor
+                verschillende producten gebruiker zoals voedsel, speelgoed, en
+                medicijnen. De gebruiker kan deze producten kopen met de coins
+                die hij heeft.
+            </p>
+            <br />
+            <br />
+            <h3>Producten en winkels</h3>
+            <p>
+                Het idee van de winkels is dat de gebruiker een winkel heeft
+                waar hij verschillende producten kan kopen. Voor elk soort
+                product is er een verschillende winkel. Zo kan de gebruiker
+                makkelijk vinden wat die nodig heeft. De producten kunnen worden
+                gekocht met de coins die de gebruiker heeft verdiend.
+            </p>
+
+            <h3>Taken</h3>
+            <p>
+                Een gebruiker kan ook een taak aanmaken, en deze taak kan worden
+                uitgevoerd. DIt is meer voor de gebruiker zelf zodat deze een
+                agenda heeft met taken. Bij het voltooien van een taak krijgt de
+                gebruiker geen coins. Een taak bevat een naam, een beschrijving,
+                een prioriteit en een deadline. Hierdoor heeft de gebruiker een
+                goed idee over wat er moet gebeuren en wat er eerst af moet
+                komen.
+            </p>
+        </div>
+    </div>
+
+    <!-- ERD Section -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h2>ERD van het Datamodel</h2>
+        </div>
+        <div class="card-body">
+            <img
+                src="assets/images/SelfInprovementERD.png"
+                alt="ERD van het datamodel"
+                class="img-fluid"
+            />
+            <p class="text-muted mt-2">
+                Binnen dit ERD staat het datamodel voor de website. Hierin is te
+                zien hoe de verschillende tabellen met elkaar in verbinding
+                staan. Ook staan hier voor de tabellen de verschillende
+                attributen die erbij horen. Laten we beginnen met de meest
+                logische tabel, de gebruikerstabel.
+            </p>
+            <h3>User</h3>
+            <p>
+                De gebruikerstabel is de basis van het datamodel. Hier staan
+                alle gebruikers in die gebruik maken van de website. De
+                gebruikerstabel heeft een aantal attributen die belangrijk zijn
+                voor de gebruiker. Zo heeft de gebruiker een emailadres en een
+                wachtwoord. Deze zijn heel belangrijk voor het inloggen. Een
+                gebruiker heeft daarnaast ook een naam, een profielfoto, een
+                gender en een mood attribute. Hiermee kan de gebruiker zichzelf
+                een beetje personaliseren. De gebruiker heeft ook een aantal
+                coins. Hiermee kan de gebruiker dieren en producten kopen.
+
+                <br />
+                Een gebruiker kan meerdere vrienden hebben en een vriend kan ook
+                meerder gebruikers hebben. Dit laat zien dat er een veel op veel
+                relatie is tussen de user en de user tabel.
+            </p>
+
+            <br />
+            <h3>Pet</h3>
+            <p>
+                In de huisdiertabel staan alle huisdieren die bekend zijn bij de
+                webapplicatie. De huisdierstabel heeft een aantal attributen die
+                belangrijk zijn. Zo heeft een huisdier een naam, een soort en
+                een afbeelding. Zo heeft de gebruiker een beter idee over wat
+                voor huisdier die aan het verzorgen is. Daarnaast heeft een
+                huisdier ook een aantal attributen die belangrijk zijn voor de
+                verzorging van het huisdier. Zo heeft een huisdier een honger,
+                een dorst, een blijheid en een gezondheid attribuut. Deze
+                attributen zijn belangrijk voor de gebruiker om te weten hoe het
+                huisdier zich voelt. Als een huisdier bijvoorbeeld honger heeft,
+                dan moet de gebruiker eten kopen voor het huisdier. Dit is dan
+                de LastFed attribute. Als een huisdier ziek is, dan moet de
+                gebruiker medicijnen kopen voor het huisdier. Dit is dan de Sick
+                attribute. Mocht een huisdies heel veel zin hebben om te spelen
+                dan kan de gebruiker speelgoed kopen voor het huisdier. Dit is
+                dan de Energetic attribute. Daarnaast is er een TypOf attribute,
+                maar die heeft meer te maken met de winkel.
+                <br />
+                Huisdieren kunnen maar 1 eigenaar hebben, maar een user kan wel
+                meerdere huisdieren hebben. Dit laat zien dat er een 1 op veel
+                relatie is tussen de user en de pet tabel.
+            </p>
+            <br />
+            <h3>Products</h3>
+            <p>
+                In de producten tabel staan alle producten die bekend zijn bij
+                de webapplicatie. De producten tabel heeft een aantal attributen
+                die belangrijk zijn. Zo heeft een product een soort, een prijs
+                en een hoeveelheid. Zo heeft de gebruiker een beter idee over
+                wat voor product die aan het kopen is en hoeveel dit er zijn.
+                Ook maakt dit het handig om te kijken hoeveel de gebruiker er
+                uiteindelijk van heeft.
+                <br />
+                Producten kunnen in meerdere winkels liggen aangezien er
+                meerdere winkels kunnen worden aangemaakt door de gebruikers. En
+                winkels kunnen van zelf sprekend meerdere producten verkopen.
+                Dit laat zien dat er een veel op veel relatie is tussen de
+                product en de winkel tabel.
+            </p>
+            <h3>Shop</h3>
+            <p>
+                In de winkel tabel staan alle winkels die bekend zijn bij de
+                webapplicatie. De winkelstabel heeft een aantal attributen die
+                belangrijk zijn. Zo heeft een winkel een naam, een soort en
+                hoeveelheid aan ruimte. Zo kan de gebruiker makkelijk zien wat
+                voor winkel heeft bezocht en wat voor producten die daar kan
+                vinden. Ook is er maar een bepaald limiet aan producten die in
+                de winkel kunnen liggen. Dit is de AmountOFSpace attribute. Zo
+                kunnen gebruikers niet oneindig veel producten kopen en
+                verkopen.
+                <br />
+                Winkels kunnen maar door 1 gebruiker worden aangemaakt, maar een
+                gebruiker kan meerdere winkels hebben. Dit laat zien dat er een
+                1 op veel relatie is tussen de user en de winkel tabel.
+            </p>
+            <h3>Task</h3>
+            <p>
+                In de taaktabel staan de volgende atributten: title,
+                description, priority, deadline, finished. Hierdoor kan de
+                gebruiker een taak makkelijk aanmaken en ook makkelijk weten
+                welke belangrijk om zo snel mogelijk te doen en welke al klaar
+                zijn.
+                <br />
+                Een taak kan maar door 1 gebruiker worden aangemaakt, maar een
+                gebruiker kan meerdere taken hebben. Dit laat zien dat er een 1
+                op veel relatie is tussen de user en de task tabel, dit is dan
+                ook de owned by.
+                <br />
+                Een taak kan wel door meerdere gebruikers worden uitgevoerd en
+                gebruikers kunnen nog altijd meerdere taken hebben. Dit laat
+                zien dat er een veel op veel relatie is tussen de user en de
+                task tabel, dit is de Has.
+                <br />
+                Een taak is daarin tegen wel een zwakke entiteit, aangezien een
+                taak pas bestaat als een gebruiker deze heeft aangemaakt.
+            </p>
+            <h3>Challenge</h3>
+            <p>
+                In de uitdagingentabel staan de volgende attributen: title,
+                description, difficulty en coins. Hierdoor Met deze attributen
+                weet de gebruiker wat voor uitdagingen hem te wachten staat.
+                Door de diffuclty van de uitdaging wordt het coins atribuut
+                steeds hoger. De coins atribuut staat hier zodat de gebruiker
+                weet hoeveel coins die kan verdienen met het voltooien van de
+                uitdaging.
+                <br />
+                Een uitdaging kan maar door 1 gebruiker worden aangemaakt, maar
+                een gebruiker kan meerdere uitdagingen hebben. Dit laat zien dat
+                er een 1 op veel relatie is tussen de user en de challenge. Dit
+                is de created relatie.
+                <br />
+                Een uitdaging kan wel door meerdere gebruikers worden uitgevoerd
+                en gebruikers kunnen nog altijd meerdere uitdagingen hebben. Dit
+                laat zien dat er een veel op veel relatie is tussen de user en
+                de challenge. Dit is de Does relatie.
+            </p>
+        </div>
+    </div>
+
+    <!-- Functional Requirements -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h2>Functionele Requirements</h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Requirement</th>
+                        <th>Acceptatiecriteria</th>
+                        <th>Prioriteit (MoSCoW)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            Als gebruiker wil ik mijn profiel kunnen aanmaken,
+                            zodanig dat ik mijn persoonlijke gegevens kan
+                            beheren.
+                        </td>
+                        <td>
+                            - De gebruiker kan een formulier invullen met naam,
+                            e-mail, wachtwoord, gender en profielfoto.<br />
+                            - Het formulier valideert input.<br />
+                            - Na succesvolle invoer wordt een profiel opgeslagen
+                            in de database.
+                        </td>
+                        <td>Must Have</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            Als gebruiker wil ik producten kunnen kopen zodat ik
+                            mijn huisdier kan verzorgen. afronden.
+                        </td>
+                        <td>
+                            - Producten kunnen worden geselecteerd uit een
+                            lijst.<br />
+                            - Er visueel duidelijkheid is dat er iets gekocht
+                            is<br />
+                            - De gebruiker zelf kan kiezen hoeveel er gekocht
+                            wordt
+                        </td>
+                        <td>Must Have</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            Als gebruiker wil ik een huisdier kunnen kopen,
+                            zodat ik mijn huisdier kan verzorgen.
+                        </td>
+                        <td>
+                            - Een huisdier kan worden geselecteerd uit een lijst
+                            en worden gekocht<br />
+                            - Er visueel duidelijkheid is dat er iets gekocht
+                            is.
+                        </td>
+                        <td>Must Have</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            Als gebruiker wil ik een uitdaging kunnen aanmaken,
+                            zodat ik andere gebruikers en mijzelf kan uitdagen.
+                        </td>
+                        <td>
+                            - Een uitdaging moet worden aangemaakt met alle
+                            attributen <br />
+                        </td>
+                        <td>Must Have</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            Als gebruiker wil ik een uitdaging kunnen uitvoeren,
+                            zodat ik coins kan verdienen.
+                        </td>
+                        <td>
+                            - Een uitdaging moet voltooid kunnen worden<br />
+                            - De gebruiker moet coins krijgen na het voltooien
+                        </td>
+                        <td>Must Have</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>
+                            Als gebruiker wil ik een taak kunnen aanmaken, zodat
+                            ik een duidelijk overzicht heb van wat er moet
+                            gebeuren.
+                        </td>
+                        <td>
+                            - Een taak moet worden aangemaakt met alle
+                            attributen.<br />
+                            - Een taak moet direct op de juiste plek komen in de
+                            lijst.
+                        </td>
+                        <td>Must Have</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>
+                            Als gebruiker wil ik een pet kunnen voeren, zodat ik
+                            mijn pet kan verzorgen.
+                        </td>
+                        <td>
+                            - Een pet moet gevoerd kunnen worden<br />
+                            - Er moet duidelijkheid zijn dat de pet gevoerd is
+                            <br />
+                            - Er moet een tijd zijn voor wanneer de pet weer
+                            gevoerd moet worden
+                        </td>
+                        <td>Should Have</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>
+                            Als gebruiker wil ik mijn huisdier medicijnen kunnen
+                            geven, zodat ik mijn huisdier kan verzorgen.
+                        </td>
+                        <td>
+                            - Een huisdier moet medicijnen kunnnen krijgen<br />
+                            - Er moet duidelijkheid zijn dat de huisdier beter
+                            is<br />
+                        </td>
+                        <td>Could Have</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>
+                            Als gebruiker wil ik dat ik met mijn huisdier kan
+                            spelen, zodat mijn huisdier moe wordt
+                        </td>
+                        <td>
+                            - Een huisdier moet kunnen spelen<br />
+                            - Er moet duidelijkheid zijn dat de huisdier moe is
+                            geworden
+                        </td>
+                        <td>Could Have</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>
+                            Als gebruiker wil ik een taak kunnen voltooien,
+                            zodat ik een duidelijk overzicht heb van wat er moet
+                            gebeuren.
+                        </td>
+                        <td>
+                            - Een taak moet voltooid kunnen worden<br />
+                            - Een taak moet direct uit de lijst verdwijnen.
+                        </td>
+                        <td>Could Have</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>
+                            Als gebruiker wil ik vrienden kunnen toevoegen,
+                            zodat ik deze uitdagingen kan geven.
+                        </td>
+                        <td>
+                            - Een gebruiker moet een vriend kunnen toevoegen<br />
+                            - Een gebruiker moet een vriend kunnen
+                            verwijderen<br />
+                            - Een gebruiker moet een vriend kunnen uitdagen
+                        </td>
+                        <td>Won't Have</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>
+                            Als gebruiker wil ik mijn gegevens kunnen aanpassen,
+                            zodat ik mijn profiel up-to-date kan houden.
+                        </td>
+                        <td>
+                            - Een gebruiker moet zijn naam kunnen aanpassen<br />
+                            - Een gebruiker moet zijn e-mail kunnen aanpassen<br />
+                            - Een gebruiker moet zijn wachtwoord kunnen
+                            aanpassen<br />
+                            - Een gebruiker moet zijn gender kunnen aanpassen<br />
+                            - Een gebruiker moet zijn profielfoto kunnen
+                            aanpassen
+                        </td>
+                        <td>Must Have</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>
+                            Als gebruiker wil ik een winkel aankunnen maken,
+                            zodat ik mijn producten kan verkopen.
+                        </td>
+                        <td>
+                            - Een gebruiker moet een winkel kunnen aankunnen
+                            maken, met een naam en een soort<br />
+                        </td>
+                        <td>Could Have</td>
+                    </tr>
+                    <tr></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
