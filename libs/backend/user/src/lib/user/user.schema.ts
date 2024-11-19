@@ -6,7 +6,7 @@ import {
     IMeal,
     IUser,
     UserGender,
-    UserRole
+    UserMood
 } from '@avans-nx-workshop/shared/api';
 import { IsMongoId } from 'class-validator';
 
@@ -14,6 +14,8 @@ export type UserDocument = User & Document;
 
 @Schema()
 export class User implements IUser {
+    mood!: UserMood;
+    coins!: number;
     @IsMongoId()
     _id!: string;
 
@@ -52,9 +54,9 @@ export class User implements IUser {
     @Prop({
         required: false,
         type: String,
-        default: UserRole.Guest
+        default: UserMood.Happy
     })
-    role: UserRole = UserRole.Guest;
+    role: UserMood = UserMood.Happy;
 
     @Prop({
         required: false,

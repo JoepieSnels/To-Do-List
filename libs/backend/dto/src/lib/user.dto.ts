@@ -1,4 +1,10 @@
-import { IsNotEmpty, IsString, IsBoolean, IsOptional } from 'class-validator';
+import {
+    IsNotEmpty,
+    IsString,
+    IsBoolean,
+    IsOptional,
+    IsNumber
+} from 'class-validator';
 import {
     // ICreateUser,
     IUpdateUser,
@@ -6,7 +12,7 @@ import {
     IUserRegistration,
     Id,
     UserGender,
-    UserRole
+    UserMood
 } from '@avans-nx-workshop/shared/api';
 import { Meal } from '@avans-nx-workshop/backend/features';
 
@@ -53,11 +59,14 @@ export class UpsertUserDto implements IUpsertUser {
 
     @IsString()
     @IsNotEmpty()
-    role: UserRole = UserRole.Unknown;
+    mood: UserMood = UserMood.Happy;
 
     @IsString()
     @IsNotEmpty()
     gender: UserGender = UserGender.Unknown;
+    @IsNumber()
+    @IsNotEmpty()
+    coins: number;
 }
 
 export class UpdateUserDto implements IUpdateUser {
