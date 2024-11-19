@@ -73,7 +73,9 @@
     "tasksRunnerOptions": {
         "default": {
             "runner": "@nrwl/workspace/tasks-runners/default",
-            "options": {}
+            "options": {
+                "cacheableOperations": ["build", "test", "lint"]
+            }
         }
     }
 }
