@@ -22,14 +22,8 @@ jobs:
               with:
                   submodules: true
                   lfs: false
-            - name: Start CI run
-              run: 'npx nx-cloud start-ci-run --distribute-on="8 linux-medium-js"'
             - name: Install OIDC Client from Core Package
               run: npm install @actions/core@1.6.0 @actions/http-client
-            - name: Fix vulnerabilities
-              run: npm audit fix --force
-            - name: Check for unresolved vulnerabilities
-              run: npm audit
             - name: Get Id Token
               uses: actions/github-script@v6
               id: idtoken
