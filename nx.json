@@ -69,5 +69,11 @@
     "nxCloudAccessToken": "ZmYwNzE3NmItMDMxZC00MDlhLWIyNTMtOTJiMmUzZWRiNjZmfHJlYWQtd3JpdGU=",
     "useInferencePlugins": false,
     "defaultBase": "master",
-    "useLegacyCache": true
+    "useLegacyCache": true,
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "@nrwl/workspace/tasks-runners/default",
+            "options": {}
+        }
+    }
 }
