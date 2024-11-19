@@ -57,8 +57,14 @@
     "useLegacyCache": true,
     "tasksRunnerOptions": {
         "default": {
+
             "runner": "@nrwl/workspace/tasks-runners/default",
             "options": { "cacheableOperations": ["build", "test", "lint"] }
+
+            "runner": "nx-cloud",
+            "options": {
+                "cacheableOperations": ["build", "test", "lint"]
+            }
         }
     },
     "nxCloudId": "673ca1e2b3721e6f9034cc6b"
