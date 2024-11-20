@@ -30,7 +30,7 @@ export class UserEditComponent implements OnInit, OnDestroy {
         UserMood.Moderate
     ];
 
-    selectedMood: UserMood | null = null; // Start als null totdat de gebruiker wordt geladen
+    selectedMood: UserMood | null = null;
 
     genders: UserGender[] = [
         UserGender.Male,
@@ -39,7 +39,7 @@ export class UserEditComponent implements OnInit, OnDestroy {
         UserGender.Unknown
     ];
 
-    selectedGender: UserGender | null = null; // Zelfde aanpak voor geslacht
+    selectedGender: UserGender | null = null;
 
     constructor(
         private route: ActivatedRoute,

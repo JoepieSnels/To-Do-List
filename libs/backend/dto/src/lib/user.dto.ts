@@ -64,9 +64,10 @@ export class UpsertUserDto implements IUpsertUser {
     @IsString()
     @IsNotEmpty()
     gender: UserGender = UserGender.Unknown;
+
     @IsNumber()
     @IsNotEmpty()
-    coins: number;
+    coins: number = 0;
 }
 
 export class UpdateUserDto implements IUpdateUser {

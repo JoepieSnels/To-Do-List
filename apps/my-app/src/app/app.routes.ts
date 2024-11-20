@@ -4,12 +4,14 @@ import { AboutComponent } from './components/about/about.component';
 import {
     UserDetailsComponent,
     UserEditComponent,
-    UserListComponent
+    UserListComponent,
+    UserRegisterComponent
 } from '@avans-nx-workshop/features';
 
 export const appRoutes: Route[] = [
     // Hier komen onze URLs te staan.
-    { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
+    { path: '', pathMatch: 'full', redirectTo: 'register' },
+    { path: 'register', component: UserRegisterComponent },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'about', pathMatch: 'full', component: AboutComponent },
     { path: 'users', pathMatch: 'full', component: UserListComponent },
