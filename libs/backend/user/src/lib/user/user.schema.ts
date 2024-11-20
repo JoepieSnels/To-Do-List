@@ -14,8 +14,6 @@ export type UserDocument = User & Document;
 
 @Schema()
 export class User implements IUser {
-    mood!: UserMood;
-    coins!: number;
     @IsMongoId()
     _id!: string;
 
@@ -56,7 +54,7 @@ export class User implements IUser {
         type: String,
         default: UserMood.Happy
     })
-    role: UserMood = UserMood.Happy;
+    mood: UserMood = UserMood.Happy;
 
     @Prop({
         required: false,
@@ -64,6 +62,13 @@ export class User implements IUser {
         default: UserGender.Unknown
     })
     gender: UserGender = UserGender.Unknown;
+
+    @Prop({
+        required: false,
+        type: Number,
+        default: 0
+    })
+    coins = 0;
 
     @Prop({
         required: false,

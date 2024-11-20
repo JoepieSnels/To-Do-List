@@ -15,6 +15,7 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
+            "@avans-nx-workshop/apps/images": ["apps/images"],
             "@avans-nx-workshop/backend/auth": [
                 "libs/backend/auth/src/index.ts"
             ],
@@ -53,8 +54,7 @@
             "@avans-nx-workshop/shared/api": ["libs/shared/api/src/index.ts"],
             "@avans-nx-workshop/shared/util-env": [
                 "libs/shared/util-env/src/index.ts"
-            ],
-            "@avans-nx-workshop/apps/images": ["apps/images"]
+            ]
         }
     },
     "exclude": ["node_modules", "tmp"]

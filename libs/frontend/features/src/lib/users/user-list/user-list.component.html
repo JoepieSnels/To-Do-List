@@ -29,7 +29,7 @@
                 />
             </td>
             <td>
-                <a routerLink="{{ user._id }}">
+                <a [routerLink]="['/users/', user._id]">
                     {{ user.name }}
                 </a>
             </td>
