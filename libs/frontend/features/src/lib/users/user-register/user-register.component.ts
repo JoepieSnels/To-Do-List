@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
     selector: 'avans-nx-workshop-user-register',
@@ -8,4 +10,11 @@ import { CommonModule } from '@angular/common';
     templateUrl: './user-register.component.html',
     styles: ``
 })
-export class UserRegisterComponent {}
+export class UserRegisterComponent implements OnInit, OnDestroy {
+    constructor(
+        private route: ActivatedRoute,
+        private userService: UserService
+    ) {}
+
+    ngOnInit() {}
+}
