@@ -97,7 +97,7 @@ jobs:
               id: deploy-to-webapp
               uses: azure/webapps-deploy@v2
               with:
-                  app-name: 'APi-To-Do' # Ensure this matches the name of your backend app in Azure
+                  app-name: 'To-do-API' # Ensure this matches the name of your backend app in Azure
                   slot-name: 'Production'
                   publish-profile: ${{ secrets.NEXTJS_PUBLISHPROFILE }}
                   package: .
