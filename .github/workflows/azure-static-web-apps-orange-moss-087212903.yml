@@ -70,9 +70,9 @@ jobs:
                   repo_token: ${{ secrets.GITHUB_TOKEN }}
                   action: 'upload'
                   # If your frontend app is located in a subdirectory, update this path
-                  app_location: 'avans-nx-workshop/apps/my-app' # Updated to match directory structure # Update based on your actual folder structure
+                  app_location: '/' # Updated to match directory structure # Update based on your actual folder structure
                   api_location: ''
-                  output_location: ''
+                  output_location: 'dist/apps/my-app'
 
     deploy-backend-api:
         runs-on: ubuntu-latest
