@@ -10,5 +10,5 @@ export const environment: IEnvironment = {
 
     // MongoDB connection string (keep this sensitive data secure)
     MONGO_DB_CONNECTION_STRING:
-        'mongodb+srv://jsnels:cg2mh2E25GQ3Qn9@to-do.pxd9m@To-DO.mongodb.net/To-Do?retryWrites=true&w=majority'
+        'mongodb+srv://jsnels:cg2mh2E25GQ3Qn9@to-do.pxd9m.mongodb.net/?retryWrites=true&w=majority&appName=To-Do'
 };
