@@ -32,8 +32,8 @@ jobs:
               run: |
                   echo ${GITHUB_WORKSPACE}
                   # Adjust the paths here based on where the built files are located
-                  cd ${GITHUB_WORKSPACE}/dist/apps/frontend-app/ && zip ${GITHUB_WORKSPACE}/frontend-app-release.zip ./* -r
-                  cd ${GITHUB_WORKSPACE}/dist/apps/backend-api/ && zip ${GITHUB_WORKSPACE}/backend-api-release.zip ./* -r
+                  cd ${GITHUB_WORKSPACE}/dist/apps/my-app/ && zip ${GITHUB_WORKSPACE}/frontend-app-release.zip ./* -r
+                  cd ${GITHUB_WORKSPACE}/dist/apps/data-api/ && zip ${GITHUB_WORKSPACE}/backend-api-release.zip ./* -r
 
             - name: Upload frontend-app artifact for deployment job
               uses: actions/upload-artifact@v3
@@ -70,7 +70,7 @@ jobs:
                   repo_token: ${{ secrets.GITHUB_TOKEN }}
                   action: 'upload'
                   # If your frontend app is located in a subdirectory, update this path
-                  app_location: '/frontend-app' # Update based on your actual folder structure
+                  app_location: '/avans-nx-workshop/apps/my-app' # Update based on your actual folder structure
                   api_location: ''
                   output_location: ''
 
