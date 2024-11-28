@@ -18,11 +18,16 @@ async function bootstrap() {
     const globalPrefix = 'api';
     app.setGlobalPrefix(globalPrefix);
 
-    // Configure CORS options
+    // Configure CORS based on environment
+    const isProduction = process.env.NODE_ENV === 'production';
+    const allowedOrigins = isProduction
+        ? ['https://polite-island-02ad37803.5.azurestaticapps.net'] // Production Angular app URL
+        : ['http://localhost:4200']; // Development Angular app URL
+
     const corsOptions: CorsOptions = {
-        origin: 'http://localhost:4200', // Angular frontend URL
-        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE' // Allowed HTTP methods
-        // Allow credentials (cookies, authorization headers)
+        origin: allowedOrigins, // Dynamically set allowed origins
+        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed HTTP methods
+        credentials: true // Allow cookies or authorization headers
     };
 
     app.enableCors(corsOptions);
@@ -30,7 +35,7 @@ async function bootstrap() {
     app.useGlobalInterceptors(new ApiResponseInterceptor());
     app.useGlobalPipes(new ValidationPipe());
 
-    // General exception handling
+    // Enable exception filters (uncomment as needed)
     // app.useGlobalFilters(new HttpExceptionFilter());
 
     const port = process.env.PORT || 3000;
@@ -39,5 +44,3 @@ async function bootstrap() {
         `🚀 DATA-API server is running on: http://localhost:${port}/${globalPrefix}`
     );
 }
-
-bootstrap();
