@@ -3,7 +3,7 @@ import { IEnvironment } from './environment.interface';
 export const environment: IEnvironment = {
     production: true,
 
-    ROOT_DOMAIN_URL: 'https://orange-moss-087212903.5.azurestaticapps.net',
+    ROOT_DOMAIN_URL: 'https://polite-island-02ad37803.5.azurestaticapps.net',
 
     // Full backend API URL
     dataApiUrl:
