@@ -10,7 +10,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-    imports: [CommonModule, RouterModule, FormsModule],
+    imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
     declarations: [
         UserDetailsComponent,
         UserListComponent,

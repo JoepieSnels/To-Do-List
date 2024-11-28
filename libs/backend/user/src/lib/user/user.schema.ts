@@ -69,20 +69,6 @@ export class User implements IUser {
         default: 0
     })
     coins = 0;
-
-    @Prop({
-        required: false,
-        type: Boolean,
-        default: true
-    })
-    isActive = true;
-
-    @Prop({
-        default: [],
-        type: [MongooseSchema.Types.ObjectId],
-        ref: 'Meal'
-    })
-    meals: IMeal[] = [];
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

@@ -1,6 +1,8 @@
 /**
  * User information required for loggin in
+ *
  */
+import { UserGender } from './user.interface';
 export interface IUserCredentials {
     emailAddress: string;
     password: string;
@@ -11,6 +13,8 @@ export interface IUserCredentials {
  */
 export interface IUserRegistration extends IUserCredentials {
     name: string;
+    profileImgUrl: string;
+    gender: UserGender;
 }
 
 export interface IToken {

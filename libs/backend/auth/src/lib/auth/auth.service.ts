@@ -13,6 +13,7 @@ import { IUserCredentials, IUserIdentity } from '@avans-nx-workshop/shared/api';
 import { CreateUserDto } from '@avans-nx-workshop/backend/dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { log } from 'console';
 
 @Injectable()
 export class AuthService {
@@ -67,6 +68,7 @@ export class AuthService {
     }
 
     async register(user: CreateUserDto): Promise<IUserIdentity> {
+        console.log('Register user');
         this.logger.log(`Register user ${user.name}`);
         if (await this.userModel.findOne({ emailAddress: user.emailAddress })) {
             this.logger.debug('user exists');

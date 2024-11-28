@@ -1,1 +1,158 @@
-<p>user-register works!</p>
+<form #registerForm="ngForm" (ngSubmit)="OnSubmit()">
+    <section class="vh-100" style="background-color: #2779e2">
+        <div class="container h-100">
+            <div
+                class="row d-flex justify-content-center align-items-center h-100"
+            >
+                <div class="col-xl-9">
+                    <h1 class="text-white mb-4">Begin Your Journey</h1>
+
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <div class="row align-items-center pt-4 pb-3">
+                                <div class="col-md-3 ps-5">
+                                    <h6 class="mb-0">Full name</h6>
+                                </div>
+                                <div class="col-md-9 pe-5">
+                                    <input
+                                        type="text"
+                                        class="form-control form-control-lg"
+                                        [formControl]="name"
+                                        required
+                                        placeholder="John Doe"
+                                    />
+                                </div>
+                                <div
+                                    *ngIf="
+                                        name.hasError('required') &&
+                                        name.touched
+                                    "
+                                    style="color: white; background-color: red"
+                                >
+                                    Name is required.
+                                </div>
+                            </div>
+
+                            <hr class="mx-n3" />
+
+                            <div class="row align-items-center py-3">
+                                <div class="col-md-3 ps-5">
+                                    <h6 class="mb-0">Email address</h6>
+                                </div>
+                                <div class="col-md-9 pe-5">
+                                    <input
+                                        type="email"
+                                        class="form-control form-control-lg"
+                                        placeholder="example@example.com"
+                                        [formControl]="email"
+                                        required
+                                    />
+                                </div>
+                                <div
+                                    *ngIf="
+                                        email.hasError('required') &&
+                                        email.touched
+                                    "
+                                    style="color: white; background-color: red"
+                                >
+                                    Email is required.
+                                </div>
+                            </div>
+
+                            <hr class="mx-n3" />
+
+                            <div class="row align-items-center py-3">
+                                <div class="col-md-3 ps-5">
+                                    <h6 class="mb-0">Password</h6>
+                                </div>
+                                <div class="col-md-9 pe-5">
+                                    <input
+                                        type="password"
+                                        class="form-control form-control-lg"
+                                        [formControl]="password"
+                                        required
+                                    />
+                                </div>
+                                <div
+                                    *ngIf="
+                                        password.hasError('required') &&
+                                        password.touched
+                                    "
+                                    style="color: white; background-color: red"
+                                >
+                                    Password is required.
+                                </div>
+                            </div>
+
+                            <hr class="mx-n3" />
+
+                            <div class="row align-items-center py-3">
+                                <div class="col-md-3 ps-5">
+                                    <h6 class="mb-0">Profile picture</h6>
+                                </div>
+                                <div class="col-md-9 pe-5">
+                                    <input
+                                        class="form-control form-control-lg"
+                                        id="profileImgUrl"
+                                        type="url"
+                                        placeholder="https://example.com/profile.jpg"
+                                        [formControl]="profilePicture"
+                                    />
+                                    <div class="small text-muted mt-2">
+                                        Please provide a link to your profile
+                                        picture
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="mx-n3" />
+
+                            <div class="row align-items-center py-3">
+                                <div class="col-md-3 ps-5">
+                                    <h6 class="mb-0">Gender</h6>
+                                </div>
+
+                                <div class="col-md-9 pe-5">
+                                    <select
+                                        class="form-select alert"
+                                        aria-label="Default select example"
+                                        [formControl]="gender"
+                                        required
+                                    >
+                                        <option
+                                            *ngFor="let gender of genders"
+                                            [value]="gender"
+                                        >
+                                            {{ gender }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div
+                                    *ngIf="
+                                        gender.hasError('required') &&
+                                        gender.touched
+                                    "
+                                    style="color: white; background-color: red"
+                                >
+                                    Gender is required.
+                                </div>
+                            </div>
+
+                            <div class="px-5 py-4">
+                                <button
+                                    type="submit"
+                                    data-mdb-button-init
+                                    data-mdb-ripple-init
+                                    class="btn btn-primary btn-lg"
+                                    [disabled]="registerForm.invalid"
+                                >
+                                    Begin the journey
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>

@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { delay, map, Observable, of } from 'rxjs';
-import { IUserInfo, UserGender, UserMood } from '@avans-nx-workshop/shared/api';
+import {
+    IUserInfo,
+    IUserRegistration,
+    UserGender,
+    UserMood
+} from '@avans-nx-workshop/shared/api';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '@avans-nx-workshop/shared/util-env';
 
@@ -16,23 +21,19 @@ export class UserService {
         console.log('UserService created');
     }
 
-    // getUsers(): IUserInfo[] {
-    //     console.log('getUsers() aangeroepen');
-    //     return this.users;
-    // }
+    createUserAsync(user: IUserRegistration): Observable<IUserRegistration> {
+        console.log('createUserAsync() aangeroepen');
+        return this.http
+            .post<any>(environment.dataApiUrl + '/auth/register', user)
+            .pipe(map((response) => response.results));
+    }
+
     getUsersAsync(): Observable<IUserInfo[]> {
         console.log('getUsersAsync() aangeroepen');
         return this.http
             .get<ApiResponse<any>>(environment.dataApiUrl + '/user')
             .pipe(map((response) => response.results));
     }
-
-    // getUsersAsObservable(): Observable<IUserInfo[]> {
-    //     console.log('getUsersAsObservable() aangeroepen');
-    //     // 'of' is een rxjs operator die een Observable
-    //     // maakt van de gegeven data.
-    //     return of(this.users).pipe(delay(2000));
-    // }
 
     getUserById(id: string | null): IUserInfo {
         console.log('getUserById() aangeroepen');
