@@ -28,6 +28,12 @@ jobs:
                   echo "Listing files in dist directory"
                   ls -R ${GITHUB_WORKSPACE}/dist
 
+            - name: Zip artifacts for deployment
+              run: |
+                  echo ${GITHUB_WORKSPACE}
+                  cd ${GITHUB_WORKSPACE}/dist/my-app/ && zip ${GITHUB_WORKSPACE}/frontend-app-release.zip ./* -r
+                  cd ${GITHUB_WORKSPACE}/dist/data-api/ && zip ${GITHUB_WORKSPACE}/backend-api-release.zip ./* -r
+
             - name: Upload frontend-app artifact for deployment job
               uses: actions/upload-artifact@v3
               with:
