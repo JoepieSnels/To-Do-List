@@ -14,8 +14,6 @@ export type UserDocument = User & Document;
 
 @Schema()
 export class User implements IUser {
-    mood!: UserMood;
-    coins!: number;
     @IsMongoId()
     _id!: string;
 
@@ -56,7 +54,7 @@ export class User implements IUser {
         type: String,
         default: UserMood.Happy
     })
-    role: UserMood = UserMood.Happy;
+    mood: UserMood = UserMood.Happy;
 
     @Prop({
         required: false,
@@ -67,17 +65,10 @@ export class User implements IUser {
 
     @Prop({
         required: false,
-        type: Boolean,
-        default: true
+        type: Number,
+        default: 0
     })
-    isActive = true;
-
-    @Prop({
-        default: [],
-        type: [MongooseSchema.Types.ObjectId],
-        ref: 'Meal'
-    })
-    meals: IMeal[] = [];
+    coins = 0;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

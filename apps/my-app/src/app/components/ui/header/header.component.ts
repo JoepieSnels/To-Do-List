@@ -6,7 +6,4 @@ import { IUserInfo } from '@avans-nx-workshop/shared/api';
     selector: 'avans-nx-workshop-header',
     templateUrl: './header.component.html'
 })
-export class HeaderComponent {
-    constructor(private userService: UserService) {}
-    users: IUserInfo[] = this.userService.getUsers();
-}
+export class HeaderComponent {}

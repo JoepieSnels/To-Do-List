@@ -26,8 +26,10 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
         // Deze manier maakt gebruik van RxJs Observables.
         this.sub = this.route.paramMap.subscribe((params) => {
             this.userId = params.get('id');
-            this.user = this.userService.getUserById(this.userId);
-            console.log('Got user ' + this.user.name);
+            this.userService.getUserByIdAsync(this.userId).subscribe((user) => {
+                this.user = user;
+                console.log('Got user ' + this.user?._id);
+            });
         });
     }
 

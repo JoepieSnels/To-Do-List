@@ -15,6 +15,10 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
+            "@avans-nx-workshop/apps/images": ["apps/images"],
+            "@avans-nx-workshop/backend-pet": [
+                "libs/backend/pet/src/lib/pet/src/index.ts"
+            ],
             "@avans-nx-workshop/backend/auth": [
                 "libs/backend/auth/src/index.ts"
             ],
@@ -25,6 +29,7 @@
             "@avans-nx-workshop/backend/neo4j": [
                 "libs/backend/neo4j/src/index.ts"
             ],
+            "@avans-nx-workshop/backend/pet": ["libs/backend/pet/src/index.ts"],
             "@avans-nx-workshop/backend/user": [
                 "libs/backend/user/src/index.ts"
             ],
@@ -35,6 +40,12 @@
                 "libs/frontend/common/src/index.ts"
             ],
             "@avans-nx-workshop/frontend/ui": ["libs/frontend/ui/src/index.ts"],
+            "@avans-nx-workshop/pet-service": [
+                "libs/frontend/features/src/lib/features/src/index.ts"
+            ],
+            "@avans-nx-workshop/pet.schema": [
+                "libs/backend/pet/src/lib/pet/pet/src/index.ts"
+            ],
             "@avans-nx-workshop/share-a-meal/auth": [
                 "libs/share-a-meal/auth/src/index.ts"
             ],
@@ -53,8 +64,7 @@
             "@avans-nx-workshop/shared/api": ["libs/shared/api/src/index.ts"],
             "@avans-nx-workshop/shared/util-env": [
                 "libs/shared/util-env/src/index.ts"
-            ],
-            "@avans-nx-workshop/apps/images": ["apps/images"]
+            ]
         }
     },
     "exclude": ["node_modules", "tmp"]

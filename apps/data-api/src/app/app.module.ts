@@ -1,28 +1,31 @@
 import { Module } from '@nestjs/common';
-import { BackendFeaturesMealModule } from '@avans-nx-workshop/backend/features';
 import { UsersModule } from '@avans-nx-workshop/backend/user';
+import { PetModule } from '@avans-nx-workshop/backend/pet';
 import { AuthModule } from '@avans-nx-workshop/backend/auth';
 import { MongooseModule } from '@nestjs/mongoose';
 import { environment } from '@avans-nx-workshop/shared/util-env';
 import { Logger } from '@nestjs/common';
 
+Logger.verbose(
+    `Mongoose db connection string: ${process.env.MONGO_DB_CONNECTION_STRING}`
+);
 @Module({
     imports: [
-        BackendFeaturesMealModule,
         AuthModule,
-        MongooseModule.forRoot(environment.MONGO_DB_CONNECTION_STRING, {
+        MongooseModule.forRoot(process.env.MONGO_DB_CONNECTION_STRING, {
             connectionFactory: (connection) => {
                 connection.on('connected', () => {
                     // console.log('is connected');
                     Logger.verbose(
-                        `Mongoose db connected to ${environment.MONGO_DB_CONNECTION_STRING}`
+                        `Mongoose db connected to ${process.env.MONGO_DB_CONNECTION_STRING}`
                     );
                 });
                 connection._events.connected();
                 return connection;
             }
         }),
-        UsersModule
+        UsersModule,
+        PetModule
     ],
     controllers: [],
     providers: []

@@ -20,9 +20,10 @@ export class UserListComponent implements OnInit, OnDestroy {
         // this.users = this.userService.getUsers();
 
         // Asynchroon: met Reactive Programming
-        this.sub = this.userService
-            .getUsersAsObservable()
-            .subscribe((users) => (this.users = users));
+        this.userService.getUsersAsync().subscribe((users) => {
+            this.users = users;
+            console.log(this.users); // Zorg ervoor dat `_id` aanwezig is
+        });
     }
 
     ngOnDestroy(): void {

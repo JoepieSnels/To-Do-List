@@ -13,7 +13,7 @@
                         >
                             <img
                                 src="{{ user?.profileImgUrl }}"
-                                alt="Admin"
+                                alt="profileImg"
                                 class="rounded-circle p-1 bg-primary"
                                 width="110"
                             />
@@ -60,19 +60,16 @@
                                             <select
                                                 class="form-select"
                                                 aria-label="Default select example"
+                                                [(ngModel)]="selectedGender"
                                                 #genderSelect
                                             >
-                                                <option value="{{ gender[0] }}">
-                                                    {{ gender[0] }}
-                                                </option>
-                                                <option value="{{ gender[1] }}">
-                                                    {{ gender[1] }}
-                                                </option>
-                                                <option value="{{ gender[2] }}">
-                                                    {{ gender[2] }}
-                                                </option>
-                                                <option value="{{ gender[3] }}">
-                                                    {{ gender[3] }}
+                                                <option
+                                                    *ngFor="
+                                                        let gender of genders
+                                                    "
+                                                    [value]="gender"
+                                                >
+                                                    {{ gender }}
                                                 </option>
                                             </select>
                                         </div>
@@ -85,19 +82,14 @@
                                             <select
                                                 class="form-select"
                                                 aria-label="Default select example"
+                                                [(ngModel)]="selectedMood"
                                                 #moodSelect
                                             >
-                                                <option value="{{ moods[0] }}">
-                                                    {{ moods[0] }}
-                                                </option>
-                                                <option value="{{ moods[1] }}">
-                                                    {{ moods[1] }}
-                                                </option>
-                                                <option value="{{ moods[2] }}">
-                                                    {{ moods[2] }}
-                                                </option>
-                                                <option value="{{ moods[3] }}">
-                                                    {{ moods[3] }}
+                                                <option
+                                                    *ngFor="let mood of moods"
+                                                    [value]="mood"
+                                                >
+                                                    {{ mood }}
                                                 </option>
                                             </select>
                                         </div>
@@ -105,7 +97,8 @@
                                     <button
                                         type="button"
                                         class="btn btn-primary"
-                                        [routerLink]="['/users/', user?._id]"
+                                        (click)="saveChanges()"
+                                        routerLink="/users/{{ user?._id }}"
                                     >
                                         Save changes
                                     </button>

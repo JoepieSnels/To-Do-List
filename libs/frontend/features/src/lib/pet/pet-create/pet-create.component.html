@@ -1,0 +1,66 @@
+<form #petCreateForm="ngForm" (ngSubmit)="onSubmit()">
+    <h1>Create Pet</h1>
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-9">
+            <h1 class="text-white mb-4">Begin Your Journey</h1>
+
+            <div class="card" style="border-radius: 15px">
+                <div class="card-body">
+                    <div class="row align-items-center pt-4 pb-3">
+                        <div class="col-md-3 ps-5">
+                            <h6 class="mb-0">name</h6>
+                        </div>
+                        <div class="col-md-9 pe-5">
+                            <input
+                                type="text"
+                                class="form-control form-control-lg"
+                                [formControl]="name"
+                                required
+                                placeholder="John Doe"
+                            />
+                        </div>
+                        <div
+                            *ngIf="name.hasError('required') && name.touched"
+                            style="color: white; background-color: red"
+                        >
+                            Name is required.
+                        </div>
+                    </div>
+
+                    <hr class="mx-n3" />
+
+                    <div class="row align-items-center py-3">
+                        <div class="col-md-3 ps-5">
+                            <h6 class="mb-0">breed</h6>
+                        </div>
+                        <div class="col-md-9 pe-5">
+                            <input
+                                type="text"
+                                class="form-control form-control-lg"
+                                placeholder="Golden Retriever"
+                                [formControl]="breed"
+                                required
+                            />
+                        </div>
+                        <div
+                            *ngIf="breed.hasError('required') && breed.touched"
+                            style="color: white; background-color: red"
+                        >
+                            Breed is required.
+                        </div>
+                    </div>
+
+                    <hr class="mx-n3" />
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        [disabled]="petCreateForm.invalid"
+                    >
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

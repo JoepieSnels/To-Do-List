@@ -14,7 +14,6 @@ import {
     UserGender,
     UserMood
 } from '@avans-nx-workshop/shared/api';
-import { Meal } from '@avans-nx-workshop/backend/features';
 
 export class CreateUserDto implements IUserRegistration {
     @IsString()
@@ -28,6 +27,14 @@ export class CreateUserDto implements IUserRegistration {
     @IsString()
     @IsNotEmpty()
     emailAddress!: string;
+
+    @IsString()
+    @IsNotEmpty()
+    profileImgUrl: string = '';
+
+    @IsString()
+    @IsNotEmpty()
+    gender!: UserGender;
 }
 
 export class UpsertUserDto implements IUpsertUser {
@@ -45,17 +52,9 @@ export class UpsertUserDto implements IUpsertUser {
     @IsNotEmpty()
     emailAddress!: string;
 
-    @IsBoolean()
-    @IsNotEmpty()
-    isActive!: boolean;
-
     @IsString()
     @IsNotEmpty()
     profileImgUrl = '';
-
-    @IsString()
-    @IsNotEmpty()
-    meals: Meal[] = [];
 
     @IsString()
     @IsNotEmpty()
@@ -66,7 +65,7 @@ export class UpsertUserDto implements IUpsertUser {
     gender: UserGender = UserGender.Unknown;
     @IsNumber()
     @IsNotEmpty()
-    coins: number;
+    coins!: number;
 }
 
 export class UpdateUserDto implements IUpdateUser {
