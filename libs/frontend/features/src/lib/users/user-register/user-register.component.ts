@@ -22,10 +22,7 @@ export class UserRegisterComponent implements OnInit, OnDestroy {
     profilePicture = new FormControl('');
     gender = new FormControl('', Validators.required);
 
-    constructor(
-        private route: ActivatedRoute,
-        private userService: UserService
-    ) {}
+    constructor(private userService: UserService) {}
 
     ngOnInit() {
         console.log('UserRegisterComponent onInit');
@@ -33,6 +30,7 @@ export class UserRegisterComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         console.log('UserRegisterComponent onDestroy');
+        this.subscription?.unsubscribe();
     }
     OnSubmit() {
         console.log('UserRegisterComponent onSubmit');

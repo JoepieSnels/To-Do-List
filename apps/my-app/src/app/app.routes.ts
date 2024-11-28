@@ -2,10 +2,13 @@ import { Route } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AboutComponent } from './components/about/about.component';
 import {
+    PetCreateComponent,
     UserDetailsComponent,
     UserEditComponent,
     UserListComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    PetListComponent,
+    PetDetailsComponent
 } from '@avans-nx-workshop/features';
 
 export const appRoutes: Route[] = [
@@ -18,5 +21,8 @@ export const appRoutes: Route[] = [
     { path: 'users/:id', component: UserDetailsComponent },
     { path: 'users/new', component: UserEditComponent },
     { path: 'users/:id/edit', component: UserEditComponent },
+    { path: 'pets', pathMatch: 'full', component: PetListComponent },
+    { path: 'pets/new', component: PetCreateComponent },
+    { path: 'pets/:id', component: PetDetailsComponent },
     { path: '**', redirectTo: 'dashboard' }
 ];

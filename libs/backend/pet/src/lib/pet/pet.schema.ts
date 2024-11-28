@@ -3,6 +3,7 @@ import { Document, Schema as MongooseSchema } from 'mongoose';
 // import { v4 as uuid } from 'uuid';
 import isEmail from 'validator/lib/isEmail';
 import { IPet } from '@avans-nx-workshop/shared/api';
+
 import { IsMongoId } from 'class-validator';
 
 export type PetDocument = Pet & Document;
@@ -26,9 +27,9 @@ export class Pet implements IPet {
 
     @Prop({
         required: true,
-        type: Date
+        type: String
     })
-    lastFed!: Date;
+    lastFed!: string;
 
     @Prop({
         required: true,
@@ -46,7 +47,7 @@ export class Pet implements IPet {
         required: true,
         type: String
     })
-    imageUrl!: string;
+    imgUrl!: string;
 }
 
-export const PetSchema = SchemaFactory.createForClass(Pet);
+export const petSchema = SchemaFactory.createForClass(Pet);

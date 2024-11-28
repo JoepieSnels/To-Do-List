@@ -1,0 +1,99 @@
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item">
+            <a routerLink="/pets">pets</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Pet Profile</li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
+<!--  -------------------------   -->
+
+<h1>Pet Profile page</h1>
+
+@if(!pet){
+<p>Loading data ...</p>
+} @else {
+
+<div class="row gutters-md pt-5">
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                    <img
+                        src="{{ pet.imgUrl }}"
+                        alt="profileImg"
+                        class="rounded-circle"
+                        width="110"
+                    />
+                    <div class="mt-3">
+                        <h4>
+                            @if(pet){
+                            {{ pet.name }}
+                            } @else {
+                            <p>...</p>
+                            }
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">{{ pet.name }}</div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Breed</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{ pet.breed }}
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Wants to play</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{ pet.energetic }}
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Last time fed</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">{{ pet.lastFed }}</div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Sick</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{ pet.sick }}
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a class="btn btn-info" routerLink="edit">Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+}

@@ -8,6 +8,10 @@ import { RouterModule } from '@angular/router';
 import { UserService } from './users/user.service';
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PetService } from './pet/pet.service';
+import { PetCreateComponent } from './pet/pet-create/pet-create.component';
+import { PetListComponent } from './pet/pet-list/pet-list.component';
+import { PetDetailsComponent } from './pet/pet-details/pet-details.component';
 
 @NgModule({
     imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
@@ -15,8 +19,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         UserDetailsComponent,
         UserListComponent,
         UserEditComponent,
-        UserRegisterComponent
+        UserRegisterComponent,
+        PetCreateComponent,
+        PetListComponent,
+        PetDetailsComponent
     ],
-    providers: [UserService, provideHttpClient()]
+    providers: [UserService, PetService, provideHttpClient()]
 })
 export class FeaturesModule {}

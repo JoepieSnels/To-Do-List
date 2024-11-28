@@ -1,0 +1,42 @@
+<h1>User list</h1>
+<p>All your pets in 1 place</p>
+
+@if(!pets) {
+<p>Loading data...</p>
+} @else if(pets && pets.length === 0) {
+<p>No users were found.</p>
+} @else {
+<table class="table table-border table-hover">
+    <thead>
+        <tr>
+            <!-- <th>id</th> -->
+            <th></th>
+            <th>Name</th>
+            <th>breed</th>
+            <th>last fed</th>
+            <th>energetic</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pet of pets">
+            <td>
+                <img
+                    src="{{ pet.imgUrl }}"
+                    alt="profileImg"
+                    width="32"
+                    height="32"
+                    class="rounded-circle"
+                />
+            </td>
+            <td>
+                <a [routerLink]="['/pets/', pet._id]">
+                    {{ pet.name }}
+                </a>
+            </td>
+            <td>{{ pet.breed }}</td>
+            <td>{{ pet.lastFed }}</td>
+            <td>{{ pet.energetic }}</td>
+        </tr>
+    </tbody>
+</table>
+}

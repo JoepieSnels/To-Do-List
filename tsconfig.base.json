@@ -40,6 +40,9 @@
                 "libs/frontend/common/src/index.ts"
             ],
             "@avans-nx-workshop/frontend/ui": ["libs/frontend/ui/src/index.ts"],
+            "@avans-nx-workshop/pet-service": [
+                "libs/frontend/features/src/lib/features/src/index.ts"
+            ],
             "@avans-nx-workshop/pet.schema": [
                 "libs/backend/pet/src/lib/pet/pet/src/index.ts"
             ],

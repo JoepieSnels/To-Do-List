@@ -4,9 +4,9 @@ import { TypeOf } from './produtcts.interface';
 export interface IPetCreate {
     name: string;
     breed: string;
-    lastFed: Date;
+    lastFed: string;
     energetic: boolean;
-    imageUrl: string;
+    imgUrl: string;
     sick: boolean;
 }
 export interface IPet extends IPetCreate {
