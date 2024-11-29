@@ -4,8 +4,6 @@ export interface IEnvironment {
     ROOT_DOMAIN_URL: string;
     dataApiUrl: string;
 
-    PORT: number;
-
     MONGO_DB_CONNECTION_STRING: string;
 
     // Hier kun je meer environment
