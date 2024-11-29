@@ -4,7 +4,8 @@ export const environment: IEnvironment = {
     production: false,
 
     ROOT_DOMAIN_URL: 'dummy',
-    dataApiUrl: 'http://localhost:3000/api',
+    dataApiUrl: 'api-to-do-ghf4ducsanarb4cf.westeurope-01.azurewebsites.net',
+    PORT: 3000,
 
     MONGO_DB_CONNECTION_STRING: 'dummy'
 };

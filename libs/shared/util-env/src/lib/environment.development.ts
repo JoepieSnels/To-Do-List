@@ -5,6 +5,7 @@ export const environment: IEnvironment = {
 
     ROOT_DOMAIN_URL: 'http://localhost:3000',
     dataApiUrl: 'http://localhost:3000/api',
+    PORT: 3000,
 
     MONGO_DB_CONNECTION_STRING: 'mongodb://localhost:27017/shareameal'
 };
